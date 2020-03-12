@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Database" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Alumno" EntityType="Models.Alumno" />
+    <EntitySet Name="Asignacion" EntityType="Models.Asignacion" />
+    <EntitySet Name="Asignatura" EntityType="Models.Asignatura" />
+    <EntitySet Name="Detalle_Grupos_Asignado" EntityType="Models.Detalle_Grupos_Asignado" />
+    <EntitySet Name="Detalles_Pensul" EntityType="Models.Detalles_Pensul" />
+    <EntitySet Name="Docente" EntityType="Models.Docente" />
+    <EntitySet Name="Grupos" EntityType="Models.Grupos" />
+    <EntitySet Name="Grupos_Alumno" EntityType="Models.Grupos_Alumno" />
+    <EntitySet Name="Grupos_Asignado" EntityType="Models.Grupos_Asignado" />
+    <EntitySet Name="Grupos_Docente" EntityType="Models.Grupos_Docente" />
+    <EntitySet Name="Grupos_Material" EntityType="Models.Grupos_Material" />
+    <EntitySet Name="Nota" EntityType="Models.Nota" />
+    <EntitySet Name="Pensul" EntityType="Models.Pensul" />
+  </EntityContainer>
+  <EntityType Name="Alumno">
+    <Key>
+      <PropertyRef Name="id_Alumno" />
+    </Key>
+    <Property Name="N_Carnet" Type="Int32" Nullable="false" />
+    <Property Name="Nombres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Apellidos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="pass" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="Boolean" />
+    <Property Name="id_Alumno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Asignacion">
+    <Key>
+      <PropertyRef Name="id_Asignacion" />
+    </Key>
+    <Property Name="id_Asignacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="N_Carnet" Type="Int32" Nullable="false" />
+    <Property Name="id_Grupo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Asignatura">
+    <Key>
+      <PropertyRef Name="Clava" />
+    </Key>
+    <Property Name="idAsignatura" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CargaAcademica" Type="Int32" />
+    <Property Name="Clava" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Detalle_Grupos_Asignado">
+    <Key>
+      <PropertyRef Name="id_Detalle_Grupo_Asignado" />
+    </Key>
+    <Property Name="id_Detalle_Grupo_Asignado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Grupos" Type="Int32" Nullable="false" />
+    <Property Name="N_Carnet" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Detalles_Pensul">
+    <Key>
+      <PropertyRef Name="id_Detalle_Pensul" />
+    </Key>
+    <Property Name="id_Detalle_Pensul" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Pensul" Type="Int32" Nullable="false" />
+    <Property Name="id_Asignatura" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Docente">
+    <Key>
+      <PropertyRef Name="Codigo_Doc" />
+    </Key>
+    <Property Name="Codigo_Doc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Nombres" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Apellidos" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pass" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Grupos">
+    <Key>
+      <PropertyRef Name="id_Grupos" />
+    </Key>
+    <Property Name="Grupo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id_Grupos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Grupos_Alumno">
+    <Key>
+      <PropertyRef Name="id_Grupo_Alumno" />
+    </Key>
+    <Property Name="id_Grupo_Alumno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Grupos" Type="Int32" Nullable="false" />
+    <Property Name="id_Alumno" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Grupos_Asignado">
+    <Key>
+      <PropertyRef Name="id_Grupo_Asignado" />
+    </Key>
+    <Property Name="id_Grupo_Asignado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Grupos" Type="Int32" Nullable="false" />
+    <Property Name="id_Asignatura" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id_Docente" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Grupos_Docente">
+    <Key>
+      <PropertyRef Name="id_Grupo_Docente" />
+    </Key>
+    <Property Name="id_Grupo_Docente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Grupos" Type="Int32" Nullable="false" />
+    <Property Name="id_Docente" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Grupos_Material">
+    <Key>
+      <PropertyRef Name="id_Grupo_Materia" />
+    </Key>
+    <Property Name="id_Grupo_Materia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Grupos" Type="Int32" Nullable="false" />
+    <Property Name="id_Asignatura" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Nota">
+    <Key>
+      <PropertyRef Name="idNOta" />
+    </Key>
+    <Property Name="idNOta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idAsignatura" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="N_Carnet" Type="Int32" />
+    <Property Name="Acumulado" Type="Int32" />
+    <Property Name="Examen" Type="Int32" />
+    <Property Name="Nota_final" Type="Int32" />
+    <Property Name="Rescate" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Pensul">
+    <Key>
+      <PropertyRef Name="idPensul" />
+    </Key>
+    <Property Name="idPensul" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="año" Type="Int32" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

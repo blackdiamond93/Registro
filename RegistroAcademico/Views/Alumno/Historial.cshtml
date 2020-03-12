@@ -1,0 +1,80 @@
+﻿@{
+
+    ViewBag.Title = "Historial";
+    @model List<RegistroAcademico.Models.ViewModels.ViewModelHistorial>
+}
+
+@{
+    if (Session["Alumno"] != null)
+    {     
+    
+        <div class="align-content-xl-center">
+            <span class="badge badge-success">@Session["Alumno"].ToString()</span>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-light">
+                <thead>
+                    <tr>
+                        <th scope="col">Clave</th>
+                        <th scope="col">Asignatura</th>
+                        <th scope="col">Nota Final</th>
+                        <th scope="col">Rescate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var oElemento in Model)
+                    {
+                        <tr>
+                            <td>@oElemento.Clave_Asignatura</td>
+                            <td>@oElemento.Nombre_Asignatura</td>
+                            <td>@oElemento.Nota_Final</td>
+                            @{
+                                if (@oElemento.Nota_Rescate == 0)
+                                {
+                                    <td> </td>
+                                }
+                                else
+                                {
+                                    <td>@oElemento.Nota_Rescate</td>
+                                }
+                            }
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+
+                </tr>
+            </tbody>
+        </table>
+    }
+}
+

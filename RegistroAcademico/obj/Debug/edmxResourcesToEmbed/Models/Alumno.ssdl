@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Alumno">
+    <Key>
+      <PropertyRef Name="id_Alumno" />
+    </Key>
+    <Property Name="N_Carnet" Type="int" Nullable="false" />
+    <Property Name="Nombres" Type="varchar" MaxLength="100" />
+    <Property Name="Apellidos" Type="varchar" MaxLength="100" />
+    <Property Name="pass" Type="varchar" MaxLength="100" />
+    <Property Name="Estado" Type="bit" />
+    <Property Name="id_Alumno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Asignacion">
+    <Key>
+      <PropertyRef Name="id_Asignacion" />
+    </Key>
+    <Property Name="id_Asignacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="N_Carnet" Type="int" Nullable="false" />
+    <Property Name="id_Grupo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Asignatura">
+    <Key>
+      <PropertyRef Name="Clava" />
+    </Key>
+    <Property Name="idAsignatura" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" />
+    <Property Name="CargaAcademica" Type="int" />
+    <Property Name="Clava" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Detalle_Grupos_Asignado">
+    <Key>
+      <PropertyRef Name="id_Detalle_Grupo_Asignado" />
+    </Key>
+    <Property Name="id_Detalle_Grupo_Asignado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_Grupos" Type="int" Nullable="false" />
+    <Property Name="N_Carnet" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Detalles_Pensul">
+    <Key>
+      <PropertyRef Name="id_Detalle_Pensul" />
+    </Key>
+    <Property Name="id_Detalle_Pensul" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_Pensul" Type="int" Nullable="false" />
+    <Property Name="id_Asignatura" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Docente">
+    <Key>
+      <PropertyRef Name="Codigo_Doc" />
+    </Key>
+    <Property Name="Codigo_Doc" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nombres" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apellidos" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="pass" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Grupos">
+    <Key>
+      <PropertyRef Name="id_Grupos" />
+    </Key>
+    <Property Name="Grupo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_Grupos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Grupos_Alumno">
+    <Key>
+      <PropertyRef Name="id_Grupo_Alumno" />
+    </Key>
+    <Property Name="id_Grupo_Alumno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_Grupos" Type="int" Nullable="false" />
+    <Property Name="id_Alumno" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Grupos_Asignado">
+    <Key>
+      <PropertyRef Name="id_Grupo_Asignado" />
+    </Key>
+    <Property Name="id_Grupo_Asignado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_Grupos" Type="int" Nullable="false" />
+    <Property Name="id_Asignatura" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_Docente" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Grupos_Docente">
+    <Key>
+      <PropertyRef Name="id_Grupo_Docente" />
+    </Key>
+    <Property Name="id_Grupo_Docente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_Grupos" Type="int" Nullable="false" />
+    <Property Name="id_Docente" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Grupos_Material">
+    <Key>
+      <PropertyRef Name="id_Grupo_Materia" />
+    </Key>
+    <Property Name="id_Grupo_Materia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_Grupos" Type="int" Nullable="false" />
+    <Property Name="id_Asignatura" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Nota">
+    <Key>
+      <PropertyRef Name="idNOta" />
+    </Key>
+    <Property Name="idNOta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idAsignatura" Type="varchar" MaxLength="100" />
+    <Property Name="N_Carnet" Type="int" />
+    <Property Name="Acumulado" Type="int" />
+    <Property Name="Examen" Type="int" />
+    <Property Name="Nota_final" Type="int" />
+    <Property Name="Rescate" Type="int" />
+  </EntityType>
+  <EntityType Name="Pensul">
+    <Key>
+      <PropertyRef Name="idPensul" />
+    </Key>
+    <Property Name="idPensul" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="año" Type="int" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="ModelsStoreContainer">
+    <EntitySet Name="Alumno" EntityType="Self.Alumno" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Asignacion" EntityType="Self.Asignacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Asignatura" EntityType="Self.Asignatura" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Detalle_Grupos_Asignado" EntityType="Self.Detalle_Grupos_Asignado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Detalles_Pensul" EntityType="Self.Detalles_Pensul" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Docente" EntityType="Self.Docente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Grupos" EntityType="Self.Grupos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Grupos_Alumno" EntityType="Self.Grupos_Alumno" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Grupos_Asignado" EntityType="Self.Grupos_Asignado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Grupos_Docente" EntityType="Self.Grupos_Docente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Grupos_Material" EntityType="Self.Grupos_Material" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Nota" EntityType="Self.Nota" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pensul" EntityType="Self.Pensul" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

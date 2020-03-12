@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7f86fbe15e0241558a42505ae11caa62" Name="Diagram1">
+        <EntityTypeShape EntityType="Models.Alumno" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Models.Asignacion" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Models.Asignatura" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="Models.Detalle_Grupos_Asignado" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="Models.Detalles_Pensul" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Models.Docente" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="Models.Grupos" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Models.Grupos_Alumno" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="Models.Grupos_Asignado" Width="1.5" PointX="2.75" PointY="6.75" />
+        <EntityTypeShape EntityType="Models.Grupos_Docente" Width="1.5" PointX="6.75" PointY="3.75" />
+        <EntityTypeShape EntityType="Models.Grupos_Material" Width="1.5" PointX="4.75" PointY="6.75" />
+        <EntityTypeShape EntityType="Models.Nota" Width="1.5" PointX="6.75" PointY="6.75" />
+        <EntityTypeShape EntityType="Models.Pensul" Width="1.5" PointX="8.75" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

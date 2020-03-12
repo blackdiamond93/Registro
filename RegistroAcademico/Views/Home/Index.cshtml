@@ -1,0 +1,36 @@
+﻿<div class="row">
+    <div class="col-lg-6">
+        <div class="card" style="width: 28rem;">
+            <center>
+                <div class="card-header">
+                    <h3>Maestros</h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+                @using (Html.BeginForm("Login", "Maestro"))
+                {
+                    <button class="btn btn-group-lg text-center" type="submit">Maestro login</button>
+                }
+            </center>
+        </div>
+
+    </div>
+    <div class="col-lg-6">
+        <div class="card" style="width: 28rem;">
+            <center>
+                <div class="card-header">
+                    <h3>Alumnos</h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+                @using (Html.BeginForm("Login", "Alumno"))
+                {
+                    <button class="btn btn-group-lg text-center" type="submit">Alumno login</button>
+                }
+            </center>
+        </div>
+
+    </div>
+</div>

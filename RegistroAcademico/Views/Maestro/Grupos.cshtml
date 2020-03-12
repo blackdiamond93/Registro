@@ -1,0 +1,97 @@
+﻿
+@{
+    
+    ViewBag.Title = "Grupos";
+    List<SelectListItem> items = (List<SelectListItem>) ViewBag.items;
+}
+
+
+
+<div class="row">
+    
+    <form method="post" action="~/Maestro/Nota">
+        <div class="form-group row">
+            <div class="col-md-4">
+                <h5>Grupos</h5>
+                        @Html.DropDownList("items", items, "Selecciona un Grupo", new { @class = "custom-select", id = "Grupo" }) 
+                </div>
+            <div class="col-md-4">
+                <h5>Asignatura</h5>
+                <select id="Asignatura" name="Asignatura" class="custom-select">
+                </select>
+            </div>
+            <div class="col-md-4">
+
+                <h5>Alumnos</h5>
+                <select id="Alumnos" name="Alumnos" class="custom-select">
+                </select>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="Acumulado">Acumulado</label>
+                    <input type="number" class="form-control" name="Acumulado" id="Acumulado" placeholder="Ingresa el Acumulado del alumno">
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="Examen">Examen</label>
+                    <input type="number" class="form-control" id="Examen" name="Examen" placeholder="Ingresa el Acumulado del alumno">
+                </div>
+
+            </div>
+        </div>
+        <button class="btn btn-lg btn-dark btn-block bg-success" type="submit">Enviar</button>
+    </form>
+   
+</div>
+
+<script>
+    var cboGrupos = document.getElementById("Grupo");
+    cboGrupos.addEventListener("change", Refresh);
+
+
+    function Refresh() {
+        fetch("@Url.Content("~/Maestro/Asignatura")" + "?Id=" + cboGrupos.value)
+            .then(function (result) {
+                if (result.ok) {
+                    return result.json();
+                }
+            })
+            .then(function (data) {
+                console.log(data);
+                cbo = document.getElementById("Asignatura");
+                cbo.innerHTML = "";
+                data.forEach(function (element) {
+                    let opt = document.createElement("option");
+                    opt.appendChild(document.createTextNode(element.Text));
+                    opt.value = element.Value;
+                    cbo.appendChild(opt);
+                })
+            })
+    }
+     var cboAlumnos = document.getElementById("Asignatura");
+    cboGrupos.addEventListener("change", Alumno);
+     function Alumno() {
+        fetch("@Url.Content("~/Maestro/Alumno")" + "?Id=" + cboGrupos.value)
+            .then(function (result) {
+                if (result.ok) {
+                    return result.json();
+                }
+            })
+            .then(function (data) {
+                console.log(data);
+                cboa = document.getElementById("Alumnos");
+                cboa.innerHTML = "";
+                data.forEach(function (element) {
+                    let opt = document.createElement("option");
+                    opt.appendChild(document.createTextNode(element.Text));
+                    opt.value = element.Text;
+                    cboa.appendChild(opt);
+                })
+            })
+    }
+
+
+    
+</script>

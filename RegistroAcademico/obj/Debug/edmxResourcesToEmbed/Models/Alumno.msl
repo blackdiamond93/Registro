@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="Database">
+    <EntitySetMapping Name="Alumno">
+      <EntityTypeMapping TypeName="Models.Alumno">
+        <MappingFragment StoreEntitySet="Alumno">
+          <ScalarProperty Name="id_Alumno" ColumnName="id_Alumno" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="N_Carnet" ColumnName="N_Carnet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Asignacion">
+      <EntityTypeMapping TypeName="Models.Asignacion">
+        <MappingFragment StoreEntitySet="Asignacion">
+          <ScalarProperty Name="id_Grupo" ColumnName="id_Grupo" />
+          <ScalarProperty Name="N_Carnet" ColumnName="N_Carnet" />
+          <ScalarProperty Name="id_Asignacion" ColumnName="id_Asignacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Asignatura">
+      <EntityTypeMapping TypeName="Models.Asignatura">
+        <MappingFragment StoreEntitySet="Asignatura">
+          <ScalarProperty Name="Clava" ColumnName="Clava" />
+          <ScalarProperty Name="CargaAcademica" ColumnName="CargaAcademica" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="idAsignatura" ColumnName="idAsignatura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Detalle_Grupos_Asignado">
+      <EntityTypeMapping TypeName="Models.Detalle_Grupos_Asignado">
+        <MappingFragment StoreEntitySet="Detalle_Grupos_Asignado">
+          <ScalarProperty Name="N_Carnet" ColumnName="N_Carnet" />
+          <ScalarProperty Name="id_Grupos" ColumnName="id_Grupos" />
+          <ScalarProperty Name="id_Detalle_Grupo_Asignado" ColumnName="id_Detalle_Grupo_Asignado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Detalles_Pensul">
+      <EntityTypeMapping TypeName="Models.Detalles_Pensul">
+        <MappingFragment StoreEntitySet="Detalles_Pensul">
+          <ScalarProperty Name="id_Asignatura" ColumnName="id_Asignatura" />
+          <ScalarProperty Name="id_Pensul" ColumnName="id_Pensul" />
+          <ScalarProperty Name="id_Detalle_Pensul" ColumnName="id_Detalle_Pensul" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Docente">
+      <EntityTypeMapping TypeName="Models.Docente">
+        <MappingFragment StoreEntitySet="Docente">
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Codigo_Doc" ColumnName="Codigo_Doc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grupos">
+      <EntityTypeMapping TypeName="Models.Grupos">
+        <MappingFragment StoreEntitySet="Grupos">
+          <ScalarProperty Name="id_Grupos" ColumnName="id_Grupos" />
+          <ScalarProperty Name="Grupo" ColumnName="Grupo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grupos_Alumno">
+      <EntityTypeMapping TypeName="Models.Grupos_Alumno">
+        <MappingFragment StoreEntitySet="Grupos_Alumno">
+          <ScalarProperty Name="id_Alumno" ColumnName="id_Alumno" />
+          <ScalarProperty Name="id_Grupos" ColumnName="id_Grupos" />
+          <ScalarProperty Name="id_Grupo_Alumno" ColumnName="id_Grupo_Alumno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grupos_Asignado">
+      <EntityTypeMapping TypeName="Models.Grupos_Asignado">
+        <MappingFragment StoreEntitySet="Grupos_Asignado">
+          <ScalarProperty Name="id_Docente" ColumnName="id_Docente" />
+          <ScalarProperty Name="id_Asignatura" ColumnName="id_Asignatura" />
+          <ScalarProperty Name="id_Grupos" ColumnName="id_Grupos" />
+          <ScalarProperty Name="id_Grupo_Asignado" ColumnName="id_Grupo_Asignado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grupos_Docente">
+      <EntityTypeMapping TypeName="Models.Grupos_Docente">
+        <MappingFragment StoreEntitySet="Grupos_Docente">
+          <ScalarProperty Name="id_Docente" ColumnName="id_Docente" />
+          <ScalarProperty Name="id_Grupos" ColumnName="id_Grupos" />
+          <ScalarProperty Name="id_Grupo_Docente" ColumnName="id_Grupo_Docente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grupos_Material">
+      <EntityTypeMapping TypeName="Models.Grupos_Material">
+        <MappingFragment StoreEntitySet="Grupos_Material">
+          <ScalarProperty Name="id_Asignatura" ColumnName="id_Asignatura" />
+          <ScalarProperty Name="id_Grupos" ColumnName="id_Grupos" />
+          <ScalarProperty Name="id_Grupo_Materia" ColumnName="id_Grupo_Materia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nota">
+      <EntityTypeMapping TypeName="Models.Nota">
+        <MappingFragment StoreEntitySet="Nota">
+          <ScalarProperty Name="Rescate" ColumnName="Rescate" />
+          <ScalarProperty Name="Nota_final" ColumnName="Nota_final" />
+          <ScalarProperty Name="Examen" ColumnName="Examen" />
+          <ScalarProperty Name="Acumulado" ColumnName="Acumulado" />
+          <ScalarProperty Name="N_Carnet" ColumnName="N_Carnet" />
+          <ScalarProperty Name="idAsignatura" ColumnName="idAsignatura" />
+          <ScalarProperty Name="idNOta" ColumnName="idNOta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pensul">
+      <EntityTypeMapping TypeName="Models.Pensul">
+        <MappingFragment StoreEntitySet="Pensul">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="año" ColumnName="año" />
+          <ScalarProperty Name="idPensul" ColumnName="idPensul" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
